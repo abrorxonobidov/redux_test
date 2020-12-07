@@ -1,17 +1,36 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import {render} from 'react-dom'
+import {Provider} from 'react-redux'
+import {createStore} from 'redux';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Counter from '../src/container/counterContainer';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+
+const store = createStore(
+    (value = 0, action) => {
+        switch (action.type) {
+            case 'INCREMENT_TEN':
+                return value + 10 ;
+             case 'INCREMENT':
+                 return value + 1;
+             case 'DECREMENT':
+                 return value - 1;
+             case 'DECREMENT_TEN':
+                 return value - 10;
+             case 'REFRESH' :
+                 return 0;
+            default:
+                return 0
+        }
+    }
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+render(
+    <Provider store={store}>
+        <div className="App">
+            <header className="App-header">
+                <Counter/>
+            </header>
+        </div>
+    </Provider>, document.getElementById('root')
+);
