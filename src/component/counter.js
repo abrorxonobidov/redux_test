@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
 
 class Counter extends Component {
+    componentDidMount() {
+        console.log(this.props)
+    }
+
     render() {
-        const {result, increment, incrementTen, decrement, decrementTen, refresh} = this.props;
+        const {value, increment, incrementTen, decrement, decrementTen, refresh} = this.props;
         return (
             <div className="App">
-                <div>{result}</div>
+                <div>{value}</div>
                 <button onClick={decrementTen}>-10</button>
                 <button onClick={decrement}>-1</button>
                 <button onClick={refresh}>♻</button>

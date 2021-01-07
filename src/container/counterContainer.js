@@ -1,13 +1,13 @@
 import {connect} from 'react-redux'
 import Counter from '../component/counter'
 
-const mapStateToProps = (value) => {
-    return {
-        result: value
-    };
+const mapStateToProps = (state) => {
+    return state
 };
 
 const mapDispatchToProps = (dispatch) => {
+    console.log('dispatch');
+
     return {
         increment: () => dispatch({type: 'INCREMENT'}),
         incrementTen: () => dispatch({type: 'INCREMENT_TEN'}),
@@ -17,4 +17,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter);
+export default connect(mapStateToProps, mapDispatchToProps)
+(Counter);
