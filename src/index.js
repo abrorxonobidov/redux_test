@@ -66,7 +66,8 @@ const reducerCounter = (state = initialState, action) => {
 };
 
 const store = createStore(
-    reducerCounter
+    reducerCounter,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 render(
@@ -79,3 +80,8 @@ render(
         </div>
     </Provider>, document.getElementById('root')
 );
+
+['a', 'b', 'c', 'd', 'e'].reduce((accumulator, currentValue, currentIndex, array) => {
+    console.log('accumulator=', accumulator, 'currentValue=', currentValue, 'currentIndex=', currentIndex, 'array=', array);
+    return accumulator + currentValue
+}, '');

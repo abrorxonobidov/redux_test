@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 
 class Click extends Component {
-    componentDidMount() {
-        console.log('Click props', this.props)
-    }
-
     render() {
         const {click, restart, setNull} = this.props;
         return (

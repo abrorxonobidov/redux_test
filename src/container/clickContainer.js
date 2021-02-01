@@ -8,8 +8,6 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => {
-    console.log('dispatch');
-
     return {
         restart: () => dispatch({type: 'RESTART'}),
         setNull: () => dispatch({type: 'SET_NULL'}),

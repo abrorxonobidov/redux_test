@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 
 class Counter extends Component {
-    componentDidMount() {
-        console.log(this.props)
-    }
-
     render() {
         const {value, increment, incrementTen, decrement, decrementTen, refresh} = this.props;
         return (
